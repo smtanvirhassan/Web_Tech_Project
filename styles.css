@@ -1,0 +1,51 @@
+ul{
+    list-style-type: none;
+}
+ 
+body{
+    margin: 0;
+    padding: 0;
+}
+.static{
+    position: static;
+    justify-items: center;
+    background-color:#F2B230;
+    padding:5px;
+}
+ 
+ 
+ 
+.sticky{
+    position: sticky;
+    top: 0;
+    display: flex;
+    background-color: rgba(25, 38, 110, 0.8);
+    backdrop-filter: blur;
+    justify-content: space-between;
+   
+   
+}
+ 
+.shopname{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 35px;
+}
+ 
+.navlinks ul{
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+}
+.navlinks ul li a{
+    color: white;
+    text-decoration: none;
+}
+ 
+.search{
+    justify-content: center;
+    margin-right: 35px;
+    margin-top: 15px;
+   
+}
