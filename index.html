@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My Cart-Kenakata BD</title>
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+    <div class="bar">
+        <h1>Kenakata BD</h1>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="cart.html">My Cart</a>
+    </div>
+
+    <div class="container">
+        <h2>My Shopping Cart</h2>
+
+ <form>
+    <h3>Add Product</h3>
+    
+    <table border="1">
+        <tr>
+            <td><label for="name">Product Name</label></td>
+            <td><input type="text" id="name" placeholder="Enter Product Name"> </td>
+        </tr>
+
+        <tr>
+            <td><label for="price">Price</label></td>
+            <td><input type="number" id="price" placeholder="Enter Price"> </td>
+        </tr>
+
+        <tr>
+            <td><label for="quantity">Quantity</label> </td>
+             <td><input type="number" id="quantity"placeholder="Enter Quantity"> </td>
+        </tr>
+
+        </table>
+    
+    </form>
+    
+        <button type="button" id="add">  Add Product </button>
+
+        <table border="1" class="cartTable">
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Action</th>
+            </tr>
+            <tbody id="cartitems"></tbody>
+         
+        </table>
+
+        <h3 id="total">Total :</h3>
+        <button onclick="payment()">Proced to Payment</button>
+
+        
+    </div>
+    <script src="cart.js"></script>
+
+    
+</body>
+</html>
