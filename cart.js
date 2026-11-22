@@ -1,9 +1,8 @@
 
-// Shopping Cart
 let cart = [];
 
 
-// Add Product
+
 
 document.getElementById("add").addEventListener("click", function() {
 
@@ -47,7 +46,7 @@ document.getElementById("add").addEventListener("click", function() {
 });
 
 
-// Display Cart
+
 
 function showCart() {
 
@@ -79,7 +78,6 @@ function showCart() {
 }
 
 
-// Remove Product
 
 function removeProduct(i) {
 
@@ -89,8 +87,6 @@ function removeProduct(i) {
 
 }
 
-
-// Payment
 
 function payment() {
 
