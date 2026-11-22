@@ -1,8 +1,31 @@
+function submitFeedback() {
+    let feedback = document.getElementById("feedback").value.trim();
+    let location = document.getElementById("location").value.trim();
+    let output = document.getElementById("feedback-message");
+
+    if (feedback === "") {
+        output.textContent = "Please write your feedback.";
+        output.style.color = "red";
+        return;
+    }
+
+    if (location === "") {
+        output.textContent = "Please enter your location.";
+        output.style.color = "red";
+        return;
+    }
+
+    output.textContent = "Thank you for your feedback from " + location + "!";
+    output.style.color = "green";
+
+    document.getElementById("feedback").value = "";
+    document.getElementById("location").value = "";
+}
 function sendMessage() {
     let name = document.getElementById("name").value.trim();
     let email = document.getElementById("email").value.trim();
     let topicBox = document.getElementById("topic");
-    let topic = topicBox.options[topicBox.selectedIndex].text;
+    let topic = topicBox.value;
     let text = document.getElementById("message").value.trim();
     let output = document.getElementById("massege");
 
@@ -18,6 +41,11 @@ function sendMessage() {
         output.style.color = "red";
         return;
     }
+    if (topic === "select") {
+    output.textContent = "Please select a topic.";
+    output.style.color = "red";
+    return;
+}
 
   
     output.textContent = "Thank you, " + name + ", for contacting us about \"" + topic + "\". We will connect soon.";
@@ -26,6 +54,6 @@ function sendMessage() {
 
     document.getElementById("name").value = "";
     document.getElementById("email").value = "";
-    topicBox.selectedIndex = 0;
+    topicBox.value = "select";
     document.getElementById("message").value = "";
 }
