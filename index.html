@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KenaKata BD</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    
 </head>
  
 <body>
@@ -103,8 +105,7 @@
         <p>Prices in BDT. Limited stock on new items.</p>
         <div class="bestseller_product">
             <div class="single_product">
-                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D%22
-                    height="250" width="350">
+                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1170&auto=format&fit=crop" height="250" width="350">
                 <p>Electronics</p>
                 <h3>Wireless headphones</h5>
                     <p>★ 4.8 (120+ sold)</p>
@@ -224,11 +225,11 @@
  
         <div class="textbox">
             <label>Enter Name</label> <br>
-            <input type="text" id="name" placeholder="Your Name>" required><br>
+            <input type="text" id="name" placeholder="Enter your Name" required><br>
             <label>Enter Email</label> <br>
-            <input type="email" id="email" placeholder="you@example.com" required> <br>
+            <input type="email" id="email" placeholder="Enter email address" required> <br>
             <label>Topic</label>
-            <select id="My order">
+            <select id="topic">
                 <option value="myorder">My order</option>
                 <option value="delivary">Delivary </option>
                 <option value="Issue">Issue</option>
@@ -238,10 +239,15 @@
             <br>
             <label>Massage</label> <br>
             <textarea id="message" name="message" rows="4" cols="50" placeholder="Type your message here"></textarea>
+            <button type="button" onclick="sendMessage()">Send</button>
         </div>
  
     </div>
  
+<div class="js_file">
+    <p id="massege"></p>
+</div>
+
     <div class="footer">
         <div>
             <div>
@@ -263,23 +269,7 @@
             <p>© 2026 KenaKata BD, Dhaka. Back to top</p>
         </div>
     </div>
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+
 </body>
  
 </html>
