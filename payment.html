@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> KenakataBD</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="topbar">
+      <h1>KenakataBD - Payment</h1>
+    </div>
+
+    <form onsubmit="return placeOrder()">
+      <div class="container">
+        <!-- ========== LEFT SIDE ========== -->
+        <div class="left">
+          <div class="box">
+            <h2>Delivery Details</h2>
+            <table>
+              <tr>
+                <td><label for="name">Full Name</label></td>
+                <td><input type="text" id="name" placeholder="Enter FULL Name" /></td>
+              </tr>
+              <tr>
+                <td><label for="email">Email</label></td>
+                <td><input type="email" id="email" placeholder="you@example.com" /></td>
+              </tr>
+              <tr>
+                <td><label for="phone">Mobile</label></td>
+                <td><input type="text" id="phone" placeholder="01XXXXXXXXX" maxlength="11" /></td>
+              </tr>
+              <tr>
+                <td><label for="division">Division</label></td>
+                <td>
+                  <select id="division">
+                    <option value="">Select division</option>
+                    <option>Dhaka</option>
+                    <option>Chattogram</option>
+                    <option>Rajshahi</option>
+                    <option>Khulna</option>
+                    <option>Sylhet</option>
+                    <option>Barishal</option>
+                    <option>Rangpur</option>
+                    <option>Mymensingh</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td><label for="address">Address</label></td>
+                <td><textarea id="address" rows="3" placeholder="House, road, area"></textarea></td>
+              </tr>
+              <tr>
+                <td>Delivery</td>
+                <td>
+                  <input type="radio" name="delivery" value="60" onclick="calculateTotal()" checked />
+                  Standard (3-5 days) - 60 Tk <br />
+                  <input type="radio" name="delivery" value="130" onclick="calculateTotal()" />
+                  Express (next day) - 130 Tk
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="box">
+            <h2>Payment Method</h2>
+
+            <input type="radio" name="payment" value="bkash" onclick="showPayment()" checked />
+            bKash
+            <input type="radio" name="payment" value="nagad" onclick="showPayment()" />
+            Nagad
+            <input type="radio" name="payment" value="card" onclick="showPayment()" />
+            Card
+            <input type="radio" name="payment" value="cod" onclick="showPayment()" />
+            Cash on Delivery
+
+            <!-- bKash / Nagad -->
+            <div id="walletBox" class="paybox">
+              <p id="walletText"></p>
+              <table>
+                <tr>
+                  <td><label for="walletNumber">Your number</label></td>
+                  <td><input type="text" id="walletNumber" placeholder="01XXXXXXXXX" maxlength="11" /></td>
+                </tr>
+                <tr>
+                  <td><label for="trxId">Transaction ID</label></td>
+                  <td><input type="text" id="trxId" placeholder="9K4D7XQ2LM" /></td>
+                </tr>
+              </table>
+            </div>
+
+            <!-- Card -->
+            <div id="cardBox" class="paybox" style="display: none">
+              <table>
+                <tr>
+                  <td><label for="cardName">Name on card</label></td>
+                  <td><input type="text" id="cardName" /></td>
+                </tr>
+                <tr>
+                  <td><label for="cardNumber">Card number</label></td>
+                  <td><input type="text" id="cardNumber" placeholder="16 digits" maxlength="16" /></td>
+                </tr>
+                <tr>
+                  <td><label for="expiry">Expiry</label></td>
+                  <td><input type="text" id="expiry" placeholder="MM/YY" maxlength="5" /></td>
+                </tr>
+                <tr>
+                  <td><label for="cvv">CVV</label></td>
+                  <td><input type="password" id="cvv" placeholder="3 digits" maxlength="3" /></td>
+                </tr>
+              </table>
+            </div>
+
+            <!-- Cash on delivery -->
+            <div id="codBox" class="paybox" style="display: none">
+              <p>Pay the courier when your order arrives. Cash handling fee: 30 Tk.</p>
+            </div>
+
+            <br />
+            <input type="checkbox" id="terms" />
+            <label for="terms">I agree to the terms and return policy</label>
+          </div>
+        </div>
+
+        <!-- ========== RIGHT SIDE ========== -->
+        <div class="right">
+          <div class="box">
+            <h2>Order Summary</h2>
+
+            <table border="1" class="itemTable">
+              <tr>
+                <th>Item</th>
+                <th>Qty</th>
+                <th>Price</th>
+              </tr>
+              <tr>
+                <td>
+                  <img src="https://picsum.photos/id/26/120/120" width="40" height="40" alt="Wallet" />
+                  Leather wallet
+                </td>
+                <td><input type="number" id="qty1" value="1" min="1" max="9" onchange="calculateTotal()" /></td>
+                <td id="line1">2450</td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="https://picsum.photos/id/21/120/120" width="40" height="40" alt="Earbuds" />
+                  Wireless earbuds
+                </td>
+                <td><input type="number" id="qty2" value="1" min="1" max="9" onchange="calculateTotal()" /></td>
+                <td id="line2">1290</td>
+              </tr>
+            </table>
+
+            <br />
+            <input type="text" id="coupon" placeholder="Promo code" />
+            <button type="button" onclick="applyCoupon()">Apply</button>
+            <p id="couponMsg"></p>
+
+            <p>Subtotal: <span id="subtotal">0</span> Tk</p>
+            <p>Delivery: <span id="shipping">0</span> Tk</p>
+            <p id="feeRow" style="display: none">Cash handling: 30 Tk</p>
+            <p id="discountRow" style="display: none">Discount: -<span id="discount">0</span> Tk</p>
+            <h3>Total: <span id="total">0</span> Tk</h3>
+
+            <button type="submit" class="payBtn">Place Order</button>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <script src="script.js"></script>
+  </body>
+</html>

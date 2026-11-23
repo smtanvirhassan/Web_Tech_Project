@@ -1,0 +1,81 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+}
+
+.topbar {
+  background-color: #17233a;
+  color: white;
+  padding: 10px 30px;
+}
+
+/* two columns */
+.container {
+  display: flex;
+  gap: 20px;
+  width: 1000px;
+  margin: 20px auto;
+}
+
+.left {
+  width: 60%;
+}
+
+.right {
+  width: 40%;
+}
+
+.box {
+  background-color: white;
+  border: 1px solid #cccccc;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+td {
+  padding: 6px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+  width: 230px;
+  padding: 6px;
+}
+
+.paybox {
+  background-color: #fff3e0;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.itemTable {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+input[type="number"] {
+  width: 50px;
+}
+
+button {
+  background-color: #17233a;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  cursor: pointer;
+}
+
+.payBtn {
+  background-color: #f26b1d;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+}
+
+#couponMsg {
+  color: green;
+}
