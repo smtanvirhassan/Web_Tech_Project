@@ -4,18 +4,18 @@ function submitFeedback() {
     let output = document.getElementById("feedback-message");
 
     if (feedback === "") {
-        output.textContent = "Please write your feedback.";
+        output.innerHTML = "Please write your feedback.";
         output.style.color = "red";
         return;
     }
 
     if (location === "") {
-        output.textContent = "Please enter your location.";
+        output.innerHTML = "Please enter your location.";
         output.style.color = "red";
         return;
     }
 
-    output.textContent = "Thank you for your feedback from " + location + "!";
+    output.innerHTML = "Thank you for your feedback from " + location + "!";
     output.style.color = "green";
 
     document.getElementById("feedback").value = "";
@@ -31,24 +31,24 @@ function sendMessage() {
 
  
     if (name === "" || text === "") {
-        output.textContent = "Please enter your name and message.";
+        output.innerHTML = "Please enter your name and message.";
         output.style.color = "red";
         return;
     }
 
     if (!email.includes("@")) {
-        output.textContent = "Please enter a valid email address.";
+        output.innerHTML = "Please enter a valid email address.";
         output.style.color = "red";
         return;
     }
     if (topic === "select") {
-    output.textContent = "Please select a topic.";
+    output.innerHTML = "Please select a topic.";
     output.style.color = "red";
     return;
 }
 
   
-    output.textContent = "Thank you, " + name + ", for contacting us about \"" + topic + "\". We will connect soon.";
+    output.innerHTML = "Thank you, " + name + ", for contacting us about \"" + topic + "\". We will connect soon.";
     output.style.color = "green";
 
 
