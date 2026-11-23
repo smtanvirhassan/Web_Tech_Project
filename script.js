@@ -50,8 +50,8 @@ function sendMessage() {
   
     output.innerHTML = "Thank you, " + name + ", for contacting us about \"" + topic + "\". We will connect soon.";
     output.style.color = "green";
-
-
+    
+    alert("Thank you, " + name + "! Your message has been sent.");
     document.getElementById("name").value = "";
     document.getElementById("email").value = "";
     topicBox.value = "select";
